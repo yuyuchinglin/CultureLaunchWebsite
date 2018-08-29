@@ -36,14 +36,7 @@
     <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src='js/device.js'></script>
-    <script src='js/theme.js'></script>
-    <script src="assets/swipe/swiper.min.js"></script>
-    <script src="assets/magnific/jquery.magnific-popup.min.js"></script>
-    <script src='js/script.js'></script>
+    
 </head>
 
 <body class="hp">
@@ -269,7 +262,7 @@
                             <div class="main-menu">
                                 <ul class="sf-menu">
 
-                                    <li class="menu-item sf-dropdown" v-for="item in webMenu">
+                                    <!-- <li class="menu-item sf-dropdown" v-for="item in webMenu">
                                         <a href="list.html">活動</a>
                                         <ul class="sub-menu">
                                             <li class="menu-item">
@@ -282,9 +275,9 @@
                                                 <a href="list-grid.html">體驗</a>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </li> -->
 
-                                    <!-- <li is="menuComponent" v-for="(menuItem) in webMenu" :menu="menuItem" :key="menuItem.id"></li> -->
+                                    <li is="menuComponent" v-for="(menuItem) in webMenu" :menu="menuItem" :key="menuItem.id"></li>
                                     <!-- 
                                     <li class="menu-item sf-dropdown">
                                         <a href="list.html">藝MBA</a>
@@ -592,7 +585,7 @@
 
     <script type="text/x-template" id="sliderContent">
             <div class="swiper-slide item">
-                <div class="image" v-bind:style="{ background:'url('+  banner.pic +')' }">
+                <div class="image" v-bind:style="{ background:'url(.'+  banner.pic +')' }">
                     <div class="carousel-caption">
                         <div class="container">
                             <h3>
@@ -609,7 +602,7 @@
         <div class="col-md-12">
             <div class="thumbnail">
                 <div class="pic effect col-xs-4">
-                    <img :src=article.pic
+                    <img :src="'.' + article.pic"
                         alt="" title="如何選擇適合自己的內容管理系統（CMS）">
                         <a class="view-more" href="detail.html" title="了解更多">
                             <span>more</span>
@@ -644,7 +637,7 @@
                             </div>
                         </div>
                         <!-- meta-info END -->
-                                                <p class="description">
+                        <p class="description">
                             {{ contentsWithoutHtmlTag }}
                         </p>
                         <a class="btn-read-more" href="detail.html">繼續閱讀</a>
@@ -652,7 +645,7 @@
             </div>
         </div>
     </script>
-    <!-- <script type="text/x-template" id="menuContent">
+    <script type="text/x-template" id="menuContent">
         <li class="menu-item sf-dropdown">             
             <a href="list.html">{{menu.title}}</a>      
             <ul class="sub-menu" v-if="menu.detial.length!=0">
@@ -661,13 +654,16 @@
                 </li>
             </ul>
         </li>
-    </script> -->
+    </script>
     <script>
 
-        // Vue.component('menuComponent', {
-        //     props: ['menu'],
-        //     template: '#menuContent'
-        // })
+        Vue.component('menuComponent', {
+            props: ['menu'],
+            template: '#menuContent',
+            mounted(){
+                theme();
+            }
+        })
 
         Vue.component('articles', {
             props: ['article'],
@@ -692,7 +688,10 @@
 
         Vue.component('sliders', {
             props: ['banner'],
-            template: '#sliderContent'
+            template: '#sliderContent',
+            created(){
+                slider();
+            }
         })
 
         let app = new Vue({

@@ -3,64 +3,68 @@
              UTRUST JS - All Rights Reserved.
 ==================================================================*/
 // Slider
-if ( $('#Slider').length )
-{
-    var swiper = new Swiper('#Slider', {
-        pagination: '.swiper-pagination',
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        preventClicks: false,
-        preventClicksPropagation: false,
-        slidesPerView: 1,
-        paginationClickable: true,
-        spaceBetween: 0,
-        loop: false
-    });
-};
 
-//slider news
-if ( $('#news-sldier').length ){
-    var swiper = new Swiper('#news-sldier', {
-        pagination: '.swiper-pagination',
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        preventClicks: false,
-        preventClicksPropagation: false,
-        slidesPerView: 1,
-        paginationClickable: true,
-        spaceBetween: 0,
-        loop: false
-    });
+function slider(){
+        if ( $('#Slider').length )
+        {
+            var swiper = new Swiper('#Slider', {
+                pagination: '.swiper-pagination',
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                preventClicks: false,
+                preventClicksPropagation: false,
+                slidesPerView: 1,
+                paginationClickable: true,
+                spaceBetween: 0,
+                loop: false
+            });
+        };
+        
+        //slider news
+        if ( $('#news-sldier').length ){
+            var swiper = new Swiper('#news-sldier', {
+                pagination: '.swiper-pagination',
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                preventClicks: false,
+                preventClicksPropagation: false,
+                slidesPerView: 1,
+                paginationClickable: true,
+                spaceBetween: 0,
+                loop: false
+            });
+        
+        };
+        
+        
+        //news2-sldier
+        if ( $('#news2-sldier').length ){
+            var swiper = new Swiper('#news2-sldier', {
+            slidesPerView: 5,
+            spaceBetween: 1,
+            pagination: '.swiper-pagination',
+            breakpoints: {
+                320: {
+                slidesPerView: 1,
+                spaceBetween: 0
+                },
+                640: {
+                slidesPerView: 2,
+                spaceBetween: 1
+                },
+                991: {
+                slidesPerView: 3,
+                spaceBetween: 1
+                },
+                1024: {
+                slidesPerView: 4,
+                spaceBetween: 1
+                }
+            }
+            });
+        };
+}
 
-};
-
-
-//news2-sldier
-if ( $('#news2-sldier').length ){
-    var swiper = new Swiper('#news2-sldier', {
-      slidesPerView: 5,
-      spaceBetween: 1,
-      pagination: '.swiper-pagination',
-      breakpoints: {
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 0
-        },
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 1
-        },
-        991: {
-          slidesPerView: 3,
-          spaceBetween: 1
-        },
-        1024: {
-          slidesPerView: 4,
-          spaceBetween: 1
-        }
-      }
-    });
-};
 
 //youtube popup
 if ( $('.popup-youtube').length ){

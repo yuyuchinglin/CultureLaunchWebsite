@@ -1,4 +1,6 @@
-jQuery.easing.jswing = jQuery.easing.swing;
+function theme(){
+
+    jQuery.easing.jswing = jQuery.easing.swing;
 jQuery.extend(jQuery.easing, {
     def: "easeOutQuad",
     swing: function(a, b, c, d, e) {
@@ -5947,3 +5949,5 @@ function td_date_i18n(a, b) {
     };
     return this.date(a, b)
 };
+
+}
